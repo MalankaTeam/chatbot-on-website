@@ -3,9 +3,9 @@
 
   <head>
     <title>chat bot test</title>
-    <link href="https://m2.by/assets/e106f060/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://m2.by/assets/5d7f7a13/apartment-font/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://m2.by/assets/5d7f7a13/css/plugins.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://m2.by/assets/5d7f7a13/apartment-font/css/font-awesome.min.css" rel="stylesheet"> -->
+    <!-- <link href="https://m2.by/assets/5d7f7a13/css/plugins.css" rel="stylesheet"> -->
     <style>
       .call-button {
         position: fixed;
@@ -98,34 +98,34 @@
         <iframe src="https://webchat.botframework.com/embed/Gumno_bot?s=FJ0Xwo5jR9E.cwA.-UI.FwqfyABn0ih7LraltMnd5Qd7YIfKvX7keUzMShLjLyM" height="5" width="5"></iframe>
     </div>
 
-	<script src="https://m2.by/assets/5d7f7a13/js/jQuery/jquery.min.js"></script>
-	<script src="https://m2.by/assets/5d7f7a13/js/jQuery/jquery-ui.min.js"></script>
-	<script src="https://m2.by/assets/e106f060/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- <script src="https://m2.by/assets/5d7f7a13/js/jQuery/jquery-ui.min.js"></script> -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script>
 		(function() {
-            var block = '#chat-bot-ms iframe';
-            var isOpen = false;
+            		var block = '#chat-bot-ms iframe';
+            		var isOpen = false;
 			$(document).ready(function() {
 				$(document).on('click', '.phone-callback-icon', function() {
-                    var b = $(block);
+					var b = $(block);
 					if (isOpen) {
-              console.log('close');
-              b.css('opacity', 0);
-              b.css('width', 5);
-              b.css('height', 5);
-              isOpen = false;
-          } else {
-              console.log('open');
+					      console.log('close');
+					      b.css('opacity', 0);
+					      b.css('width', 5);
+					      b.css('height', 5);
+					      isOpen = false;
+					  } else {
+					      console.log('open');
 
-              b.css('opacity', 1);
-              b.css('width', 330);
-              b.css('height', 590);
-              // $('.wc-header').css('background-color', '#951a1d');
-              // document.querySelector('.wc-header').style.backgroundColor = '#951a1d';
-              isOpen = true;
+					      b.css('opacity', 1);
+					      b.css('width', 330);
+					      b.css('height', 590);
+					      // $('.wc-header').css('background-color', '#951a1d');
+					      // document.querySelector('.wc-header').style.backgroundColor = '#951a1d';
+					      isOpen = true;
 					}
 
-				});
+				});	
 			});
 		}());
 	</script>
