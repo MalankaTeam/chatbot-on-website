@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>chat bot test</title>
+    <link href="https://m2.by/assets/e106f060/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://m2.by/assets/5d7f7a13/apartment-font/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://m2.by/assets/5d7f7a13/css/plugins.css" rel="stylesheet">
+    <style>
+      .call-button {
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 80px;
+        height: 80px;
+        z-index: 500;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .call-button {
+          bottom: 74px;
+        }
+      }
+
+      .call-button a {
+        display: inline-block;
+        margin-left: -5px;
+        margin-right: 15px;
+        padding-left: 25px;
+        padding-right: 15px;
+      }
+
+      .phone-callback-icon {
+        width: 60px;
+        height: 60px;
+        padding-top: 7px;
+        background-color: #951a1d;
+        box-shadow: -2px -4px 0 4px #ff7b7b,
+        2px -4px 0 #bf7a7a inset;
+        animation: move-shadow 5s infinite;
+        border-radius: 60px;
+      }
+
+      .sended-callback {
+        text-align: center;
+      }
+
+      .error-info {
+        color: #ff0000;
+      }
+
+      #chat-icon-pic {
+        margin-top: 6px;
+        color: white;
+      }
+
+      #chat-bot-ms iframe {
+        opacity: 0.5;
+        border: 0;
+        position: absolute;
+        bottom: 95px;
+        left: 5px;
+      }
+    </style>
+
+  </head>
+
+<body>
+
+	<div class="call-button">
+		<div class="big-triangle-first-color"></div>
+		<div class="big-icon-second-color phone-callback-icon" data-toggle="tooltip" data-placement="right" data-original-title="Click here, please">
+			<a>
+          <i id="chat-icon-pic" class="fa fa-phone fa-2x"></i>
+      </a>
+		</div>
+	</div>
+    
+	<div class="modal modal-phone-callback fade apartment-modal in" id="phone-callback-modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+							<button type="button" class="close btn-danger" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span>РЎlose chat</button>
+							<p class="negative-margin forgot-info">
+
+							</p>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+		</div>
+	</div>
+    <div id="chat-bot-ms" style="">
+        <iframe src="https://webchat.botframework.com/embed/Gumno_bot?s=FJ0Xwo5jR9E.cwA.-UI.FwqfyABn0ih7LraltMnd5Qd7YIfKvX7keUzMShLjLyM" height="5" width="5"></iframe>
+    </div>
+
+	<script src="https://m2.by/assets/5d7f7a13/js/jQuery/jquery.min.js"></script>
+	<script src="https://m2.by/assets/5d7f7a13/js/jQuery/jquery-ui.min.js"></script>
+	<script src="https://m2.by/assets/e106f060/js/bootstrap.min.js"></script>
+	<script>
+		(function() {
+            var block = '#chat-bot-ms iframe';
+            var isOpen = false;
+			$(document).ready(function() {
+				$(document).on('click', '.phone-callback-icon', function() {
+                    var b = $(block);
+					if (isOpen) {
+              console.log('close');
+              b.css('opacity', 0);
+              b.css('width', 5);
+              b.css('height', 5);
+              isOpen = false;
+          } else {
+              console.log('open');
+
+              b.css('opacity', 1);
+              b.css('width', 330);
+              b.css('height', 590);
+              // $('.wc-header').css('background-color', '#951a1d');
+              // document.querySelector('.wc-header').style.backgroundColor = '#951a1d';
+              isOpen = true;
+					}
+
+				});
+			});
+		}());
+	</script>
+
+</body>
+
+</html>
+
+
