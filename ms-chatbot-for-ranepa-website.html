@@ -61,6 +61,12 @@
         bottom: 95px;
         left: 5px;
       }
+	    
+      #chat-bot-ms #chat-bot-bg {
+	      	height: 590px;
+		width: 330px;
+		background-color: gray;
+      }
     </style>
 
   </head>
@@ -95,6 +101,7 @@
 		</div>
 	</div>
     <div id="chat-bot-ms" style="">
+	<div id="chat-bot-bg"></div>
         <iframe src="https://webchat.botframework.com/embed/Gumno_bot?s=FJ0Xwo5jR9E.cwA.-UI.FwqfyABn0ih7LraltMnd5Qd7YIfKvX7keUzMShLjLyM" height="5" width="5"></iframe>
     </div>
 
@@ -105,6 +112,15 @@
 		(function() {
             		var block = '#chat-bot-ms iframe';
             		var isOpen = false;
+			
+
+			
+			$(document).on('scroll', function (e) {				
+        			var scrolled = window.pageYOffset || document.documentElement.scrollTop;				
+				var position = scrolled - 95;
+				$('#chat-bot-ms iframe').css('bottom', '-' + position + 'px');
+			});
+			
 			$(document).ready(function() {
 				$(document).on('click', '.phone-callback-icon', function() {
 					var b = $(block);
@@ -124,7 +140,7 @@
 					      //.wc-chatview-panel b.css('background-color: #fbfbfb;
 					      // $('.wc-header').css('background-color', '#951a1d');
 					      // document.querySelector('.wc-header').style.backgroundColor = '#951a1d';
-					      //$('#chat-bot-ms iframe').css('bottom', '-900px');
+					      //
 					      isOpen = true;
 					}
 
