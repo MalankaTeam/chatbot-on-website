@@ -1,76 +1,138 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>chat bot test</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<head>
+	<title>chat bot test</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-      .call-button {
-        position: fixed;
-        bottom: 0px;
-        right: 0px;
-        width: 80px;
-        height: 80px;
-        z-index: 500;
-      }
-      @media only screen and (max-width: 600px) {
-        .call-button {
-          bottom: 74px;
-        }
-      }
-      .call-button a {
-        display: inline-block;
-        margin-left: -5px;
-        margin-right: 15px;
-        padding-left: 25px;
-        padding-right: 15px;
-      }
-      .phone-callback-icon {
-        width: 60px;
-        height: 60px;
-        padding-top: 7px;
-        background-color: #951a1d;
-        box-shadow: 0px 0px 3px 4px #ff7b7b;
-        animation: move-shadow 5s infinite;
-        border-radius: 60px;
-      }
-      .sended-callback {
-        text-align: center;
-      }
-      .error-info {
-        color: #ff0000;
-      }
-      #chat-icon-pic {
-        margin-top: 6px;
-        color: white;
-      }
-      #chat-bot-ms iframe {
-        opacity: 0.5;
-        border: 0;
-        position: absolute;
-        bottom: 95px;
-        right: 5px;
-	z-index: 500;
-      }
-	    
-      #chat-bot-ms #chat-bot-bg {
-	height: 590px;
-	width: 330px;
-	background-color: #fcfcfc;
-	position: absolute;
-        bottom: 95px;
-        right: 5px;
-	display: none;
-	box-shadow: 0px 0px 3px 4px #e9e9e9;
-	z-index: 500;
-      }
-    </style>
+	<style>
+		.call-button {
+			position: fixed;
+			bottom: 0px;
+			right: 0px;
+			width: 80px;
+			height: 80px;
+			z-index: 500;
+		}
 
-  </head>
+		@media only screen and (max-width: 600px) {
+			.call-button {
+				bottom: 74px;
+			}
+		}
+
+		.call-button a {
+			display: inline-block;
+			margin-left: -5px;
+			margin-right: 15px;
+			padding-left: 25px;
+			padding-right: 15px;
+		}
+
+		.phone-callback-icon {
+			width: 60px;
+			height: 60px;
+			padding-top: 7px;
+			background-color: #951a1d;
+			box-shadow: 0px 0px 3px 4px #ff7b7b;
+			animation: move-shadow 5s infinite;
+			border-radius: 60px;
+            cursor: pointer;
+		}
+
+		.sended-callback {
+			text-align: center;
+		}
+
+		.error-info {
+			color: #ff0000;
+		}
+
+		#chat-icon-pic {
+			margin-top: 6px;
+			color: white;
+		}
+
+		#chat-bot-ms iframe {
+			opacity: 0.5;
+			border: 0;
+			position: absolute;
+			bottom: 95px;
+			right: 5px;
+			z-index: 500;
+		}
+
+		#chat-bot-ms #chat-bot-bg {
+			height: 590px;
+			width: 330px;
+			background-color: #fcfcfc;
+			position: absolute;
+			bottom: 95px;
+			right: 5px;
+			display: none;
+			box-shadow: 0px 0px 3px 4px #e9e9e9;
+			z-index: 500;
+		}
+	</style>
+
+</head>
 
 <body>
-<h1>hello</h1><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2><h2>hello</h2>
+	<h1>hello</h1>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
+	<h2>hello</h2>
 
 
 
@@ -82,7 +144,7 @@
       </a>
 		</div>
 	</div>
-    
+
 	<div class="modal modal-phone-callback fade apartment-modal in" id="phone-callback-modal">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -101,58 +163,58 @@
 			</div>
 		</div>
 	</div>
-    <div id="chat-bot-ms" style="">
-	<div id="chat-bot-bg"></div>
-        <iframe src="https://webchat.botframework.com/embed/Gumno_bot?s=FJ0Xwo5jR9E.cwA.-UI.FwqfyABn0ih7LraltMnd5Qd7YIfKvX7keUzMShLjLyM" height="5" width="5"></iframe>
-    </div>
+	<div id="chat-bot-ms" style="">
+		<div id="chat-bot-bg"></div>
+		<iframe src="https://webchat.botframework.com/embed/Gumno_bot?s=FJ0Xwo5jR9E.cwA.-UI.FwqfyABn0ih7LraltMnd5Qd7YIfKvX7keUzMShLjLyM" height="5" width="5"></iframe>
+	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script>
 		(function() {
-            		var block = '#chat-bot-ms iframe';
-					var block2 = '#chat-bot-ms #chat-bot-bg';
-					
-            		var isOpen = false;
-			
-			
-			$(document).on('scroll', function (e) {				
-        		var scrolled = window.pageYOffset || document.documentElement.scrollTop;				
+			var block = '#chat-bot-ms iframe';
+			var block2 = '#chat-bot-ms #chat-bot-bg';
+
+			var isOpen = false;
+
+
+			$(document).on('scroll', function(e) {
+				var scrolled = window.pageYOffset || document.documentElement.scrollTop;
 				var position = scrolled - 95;
 				$('#chat-bot-ms iframe').css('bottom', '-' + position + 'px');
 				$('#chat-bot-ms #chat-bot-bg').css('bottom', '-' + position + 'px');
 			});
-			
+
 			$(document).ready(function() {
 				$(document).on('click', '.phone-callback-icon', function() {
 					var b = $(block);
 					var b2 = $(block2);
 					if (isOpen) {
-					      console.log('close');
-						
-					      b.css('opacity', 0);
-					      b.css('width', 5);
-					      b.css('height', 5);
-						  
-						  b2.css('display', 'none');
-						  
-					      isOpen = false;
-					  } else {
-					      console.log('open');
-					      b.css('opacity', 1);
-					      b.css('width', 330);
-					      b.css('height', 590);
-					      //.wc-chatview-panel b.css('background-color: #fbfbfb;
-					      // $('.wc-header').css('background-color', '#951a1d');
-					      // document.querySelector('.wc-header').style.backgroundColor = '#951a1d';
-					      //
-						  
-						  b2.css('display', 'block');
-						  
-					      isOpen = true;
+						console.log('close');
+
+						b.css('opacity', 0);
+						b.css('width', 5);
+						b.css('height', 5);
+
+						b2.css('display', 'none');
+
+						isOpen = false;
+					} else {
+						console.log('open');
+						b.css('opacity', 1);
+						b.css('width', 330);
+						b.css('height', 590);
+						//.wc-chatview-panel b.css('background-color: #fbfbfb;
+						// $('.wc-header').css('background-color', '#951a1d');
+						// document.querySelector('.wc-header').style.backgroundColor = '#951a1d';
+						//
+
+						b2.css('display', 'block');
+
+						isOpen = true;
 					}
-				});	
+				});
 			});
 		}());
 	</script>
