@@ -3,7 +3,10 @@
 
 <head>
 	<title>chat bot test</title>
+
+    <!-- THIS IS START FOR HEADER BLOCK.   ЭТО НАЧАЛО ДЛЯ БЛОКА В ШАПКЕ СТРАНИЦЫ -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.botframework.com/botframework-webchat/latest/botchat.css" rel="stylesheet" />
 
 	<style>
 		.call-button {
@@ -17,7 +20,7 @@
 
 		@media only screen and (max-width: 600px) {
 			.call-button {
-				bottom: 74px;
+				bottom: 0px;
 			}
 		}
 
@@ -39,6 +42,12 @@
 			border-radius: 60px;
             cursor: pointer;
 		}
+
+        .phone-callback-icon a img {
+            width: 55px;
+            margin-left: -16px;
+            margin-top: -3px;
+        }
 
 		.sended-callback {
 			text-align: center;
@@ -62,6 +71,15 @@
 			z-index: 500;
 		}
 
+        #chatbot-container {
+            position: absolute;
+            bottom: 95px;
+            width: 1px;
+            height: 1px;
+            right: 5px;
+			z-index: 500;
+        }
+
 		#chat-bot-ms #chat-bot-bg {
 			height: 590px;
 			width: 330px;
@@ -73,7 +91,21 @@
 			box-shadow: 0px 0px 3px 4px #e9e9e9;
 			z-index: 500;
 		}
+
+        .wc-header {
+            background-color: #990000;
+        }
+
+        .wc-message-from-me .wc-message-content {
+            background-color: #a30a0d;
+            color: #ffffff;
+        }
+
+        .wc-message-from-me svg.wc-message-callout path {
+            fill: #a30a0d;
+        }
 	</style>
+    <!-- THIS IS END FOR HEADER BLOCK.   ЭТО КОНЕЦ ДЛЯ БЛОКА В ШАПКЕ СТРАНИЦЫ -->
 
 </head>
 
@@ -134,47 +166,55 @@
 	<h2>hello</h2>
 	<h2>hello</h2>
 
-
-
+    <!-- THIS IS START FOR HTML-BLOCK IN THE PAGE.         ЭТО НАЧАЛО БЛОКА ДЛЯ ВСТАВКИ В HTML-блок страницы -->
 	<div class="call-button">
 		<div class="big-triangle-first-color"></div>
 		<div class="big-icon-second-color phone-callback-icon" data-toggle="tooltip" data-placement="right" data-original-title="Click here, please">
 			<a>
-          <i id="chat-icon-pic" class="fa fa-phone fa-2x"></i>
-      </a>
+                <img src="images/ranepa-bot-button1.png" alt="Бот">
+            </a>
 		</div>
 	</div>
 
-	<div class="modal modal-phone-callback fade apartment-modal in" id="phone-callback-modal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-body">
-							<button type="button" class="close btn-danger" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span>Сlose chat</button>
-							<p class="negative-margin forgot-info">
-
-							</p>
-						</div>
-					</div>
-					<!-- /.modal-content -->
-				</div>
-				<!-- /.modal-dialog -->
-			</div>
-		</div>
-	</div>
 	<div id="chat-bot-ms" style="">
 		<div id="chat-bot-bg"></div>
-		<iframe src="https://webchat.botframework.com/embed/Gumno_bot?s=FJ0Xwo5jR9E.cwA.-UI.FwqfyABn0ih7LraltMnd5Qd7YIfKvX7keUzMShLjLyM" height="5" width="5"></iframe>
+        <div id="chatbot-container"></div>
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/botchat.js"></script>
 	<script>
 		(function() {
+            var model = {
+              "userId": "6KtVTXeBzMm",
+              "userName": "Вы",
+              "botId": "Gumno_bot",
+              "botIconUrl": "//bot-framework.azureedge.net/bot-icons-v1/bot-framework-default.png",
+              "botName": "РАНХИГС-бот",
+              "secret": "FJ0Xwo5jR9E.cwA.-UI.FwqfyABn0ih7LraltMnd5Qd7YIfKvX7keUzMShLjLyM",
+              "iconUrl": "//bot-framework.azureedge.net/bot-icons-v1/bot-framework-default.png",
+              "directLineUrl": "https://webchat.botframework.com/v3/directline",
+              "webSocketEnabled": "false",
+              "speechTokenEndpoint": "https://api.botframework.com/v3/speechtoken",
+              "useLatestWebChat": false
+            };
+
+            BotChat.App({
+                    directLine: {
+                    secret: model.secret,
+                    token: model.token,
+                    domain: model.directLineUrl,
+                    webSocket: false
+                },
+                user: { id: model.userId, name: model.userName },
+                bot: { id: model.botId, name: model.botName },
+            }, document.getElementById("chatbot-container"));
+
 			var block = '#chat-bot-ms iframe';
 			var block2 = '#chat-bot-ms #chat-bot-bg';
+            var block3 = '#chatbot-container';
 
 			var isOpen = false;
 
@@ -182,7 +222,7 @@
 			$(document).on('scroll', function(e) {
 				var scrolled = window.pageYOffset || document.documentElement.scrollTop;
 				var position = scrolled - 95;
-				$('#chat-bot-ms iframe').css('bottom', '-' + position + 'px');
+				$('#chat-bot-ms #chatbot-container').css('bottom', '-' + position + 'px');
 				$('#chat-bot-ms #chat-bot-bg').css('bottom', '-' + position + 'px');
 			});
 
@@ -190,35 +230,42 @@
 				$(document).on('click', '.phone-callback-icon', function() {
 					var b = $(block);
 					var b2 = $(block2);
+					var b3 = $(block3);
+
 					if (isOpen) {
 						console.log('close');
 
-						b.css('opacity', 0);
-						b.css('width', 5);
-						b.css('height', 5);
+						b3.css('opacity', 0);
+						b3.css('width', 1);
+						b3.css('height', 1);
 
 						b2.css('display', 'none');
 
 						isOpen = false;
 					} else {
-						console.log('open');
-						b.css('opacity', 1);
-						b.css('width', 330);
-						b.css('height', 590);
-						//.wc-chatview-panel b.css('background-color: #fbfbfb;
-						// $('.wc-header').css('background-color', '#951a1d');
-						// document.querySelector('.wc-header').style.backgroundColor = '#951a1d';
-						//
 
-						b2.css('display', 'block');
+                        b3.css('opacity', 1);
 
+                        if (window.innerWidth < 630) {
+                            b3.css('width', window.innerWidth);
+                            b3.css('height', window.innerHeight);
+                            b2.css('width', window.innerWidth);
+                            b2.css('height', window.innerHeight);
+                        } else {
+                            b3.css('width', 395);
+                            b3.css('height', 580);
+                            b2.css('width', 395);
+                            b2.css('height', 580);
+                        }
+
+                        b2.css('display', 'block');
 						isOpen = true;
 					}
 				});
 			});
 		}());
 	</script>
+    <!-- THIS IS END FOR HTML-BLOCK IN THE PAGE.         ЭТО НАЧАЛО БЛОКА ДЛЯ ВСТАВКИ В HTML-блок страницы -->
 
 </body>
-
 </html>
