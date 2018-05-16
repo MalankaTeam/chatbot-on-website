@@ -43,6 +43,14 @@
             cursor: pointer;
 		}
 
+        .phone-callback-icon a i {
+            color: white;
+            padding-left: 0px;
+            padding-top: 9px;
+            margin-left: -2px;
+            font-size: x-large;
+        }
+
         .phone-callback-icon a img {
             width: 55px;
             margin-left: -17px;
@@ -228,8 +236,15 @@
             function scrollChatbotWindow() {
                 var scrolled = window.pageYOffset || document.documentElement.scrollTop;
                 var position = scrolled - 95;
-                $('#chat-bot-ms #chatbot-container').css('bottom', '-' + position + 'px');
-                $('#chat-bot-ms #chat-bot-bg').css('bottom', '-' + position + 'px');
+
+                if (position > 0) {
+                    position = '-' + position;
+                } else {
+                    position = -1 * position;
+                }
+
+                $('#chat-bot-ms #chatbot-container').css('bottom', position + 'px');
+                $('#chat-bot-ms #chat-bot-bg').css('bottom', position + 'px');
             }
 
 			$(document).on('scroll', function(e) {
@@ -245,7 +260,9 @@
 					var b3 = $(block3);
 
 					if (isOpen) {
-						console.log('close');
+                        $('.phone-callback-icon a i').remove();
+                        $('.phone-callback-icon a').html('<img src="https://static.tildacdn.com/tild3064-6664-4866-b563-346261336665/ranepa-bot-button1.png" alt="Бот">');
+                        $('.phone-callback-icon').css('background-color', '#951a1d');
 
 						b3.css('opacity', 0);
 						b3.css('width', 1);
@@ -256,6 +273,9 @@
 						isOpen = false;
 					} else {
 
+                        $('.phone-callback-icon a img').remove();
+                        $('.phone-callback-icon a').html('<i class="glyphicon glyphicon-remove"></i>');
+                        $('.phone-callback-icon').css('background-color', '#862427');
                         b3.css('opacity', 1);
 
                         if (window.innerWidth < 630) {
